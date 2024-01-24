@@ -18,7 +18,7 @@ export default async function Header() {
       <div className="mr-auto items-center gap-4">
         <h1 className="text-2xl font-bold">Watchlist</h1>
       </div>
-      {user ? <ProfileIcon user={user} /> : <LoginModal />}
+      {user ? <ProfileIcon /> : <LoginModal />}
       <ModeToggle />
     </header>
   );
