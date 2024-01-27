@@ -1,5 +1,5 @@
 import OAuthButton from "@/components/oauth-button";
-import { createClient } from "@/supabase/server";
+import { createClient } from "@/utils/supabase/actions";
 import { cookies, headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
