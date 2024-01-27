@@ -1,7 +1,7 @@
 import AddButton from "@/components/AddButton";
 import HamburguerMenu from "@/components/HamburgerMenu";
 import WatchlistCard from "@/components/WatchlistCard";
-import { createClient } from "@/supabase/server";
+import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import Link from "next/link";
 
@@ -67,7 +67,7 @@ export default async function Home({
       <div className="ml-auto mr-10 border-2 bg-blue-600 px-6 py-2 rounded-md mb-5">
         {user ? <AddButton /> : <h1>Login To Add Items to Watchlist</h1>}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-10">
         {searchParams.category === "All" &&
           watchlist.all?.map((item) => (
             <WatchlistCard key={item.id} item={item} />

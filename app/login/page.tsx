@@ -1,6 +1,6 @@
 import OAuthButton from "@/components/oauth-button";
-import { createClient } from "@/supabase/server";
-import { cookies, headers } from "next/headers";
+import { createClient } from "@/utils/supabase/actions";
+import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -85,7 +85,7 @@ export default async function SignUpPage({
         </button>
         <div className="flex justify-between pt-5">
           {providers.map((provider) => (
-            <OAuthButton key={provider} provider={provider} />
+            <OAuthButton provider="discord" key={provider} />
           ))}
         </div>
         <p className="text-center">

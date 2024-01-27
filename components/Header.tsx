@@ -1,4 +1,4 @@
-import { createClient } from "@/supabase/server";
+import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import LoginModal from "./LoginModal";
 import { ModeToggle } from "./ModeToggle";

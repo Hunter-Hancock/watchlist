@@ -1,4 +1,4 @@
-import { createClient } from "@/supabase/server";
+import { createClient } from "@/utils/supabase/actions";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -15,4 +15,3 @@ export async function GET(request: Request) {
   // URL to redirect to after sign in process completes
   return NextResponse.redirect(requestUrl.origin);
 }
-

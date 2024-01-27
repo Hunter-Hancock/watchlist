@@ -1,6 +1,6 @@
 "use server";
 
-import { createClient } from "@/supabase/server";
+import { createClient } from "@/utils/supabase/actions";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -49,11 +49,17 @@ export async function addItem(formData: FormData) {
 
   const response = await request.json();
 
+  console.log(response);
+
   const image = response.items[0].link;
 
-  const { error } = await supabase
-    .from("watchlist")
-    .insert({ title, category, type, user_id: user?.id, image_url: image });
+  const { error } = await supabase.from("watchlist").insert({
+    title,
+    category,
+    type,
+    user_id: user?.id,
+    image_url: image ?? "",
+  });
 
   if (error) {
     redirect("/?error=Unable to add item to watchlist");
