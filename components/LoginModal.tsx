@@ -1,4 +1,4 @@
-import { signInEmail } from "@/actions";
+import { signInEmail } from "@/app/_actions";
 import Link from "next/link";
 import OAuthButton from "./oauth-button";
 import {

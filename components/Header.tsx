@@ -11,14 +11,12 @@ export default async function Header() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  console.log(user);
-
   return (
-    <header className="flex justify-end items-center w-full h-16 px-4">
+    <header className="flex justify-end items-center w-full h-16 px-4 border-2">
       <div className="mr-auto items-center gap-4">
         <h1 className="text-2xl font-bold">Watchlist</h1>
       </div>
-      {user ? <ProfileIcon /> : <LoginModal />}
+      {user ? <ProfileIcon user={user} /> : <LoginModal />}
       <ModeToggle />
     </header>
   );
