@@ -5,9 +5,8 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-const cookieStore = cookies();
-
 export const signInEmail = async (formData: FormData) => {
+  const cookieStore = cookies();
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const supabase = createClient(cookieStore);
@@ -30,6 +29,7 @@ export const signInEmail = async (formData: FormData) => {
 };
 
 export async function addItem(formData: FormData) {
+  const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   const {
     data: { user },
@@ -64,6 +64,7 @@ export async function addItem(formData: FormData) {
 }
 
 export async function removeItem(id: number) {
+  const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
   const { error } = await supabase.from("watchlist").delete().eq("id", id);
