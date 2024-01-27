@@ -1,6 +1,7 @@
 "use client";
 
 import { removeItem } from "@/app/_actions";
+import { useFormStatus } from "react-dom";
 import TrashCanIcon from "./TrashCanIcon";
 
 interface WatchlistCardProps {
@@ -16,14 +17,29 @@ interface WatchlistCardProps {
   };
 }
 
+function DeleteButton({ id }: { id: number }) {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      className="absolute right-2 top-2 md:hidden rounded-full cursor-pointer group-hover:block"
+      type="submit">
+      <TrashCanIcon />
+      {pending ? (
+        <div className="absolute right-[120px] top-[200px] w-10 h-10 rounded-full border-4 border-red-500 border-t-transparent animate-spin"></div>
+      ) : (
+        ""
+      )}
+    </button>
+  );
+}
+
 export default async function WatchlistCard({ item }: WatchlistCardProps) {
   return (
-    <div className="relative flex flex-col border-2 border-neutral-300 rounded-md w-[300px] group">
-      <div
-        onClick={() => removeItem(item.id)}
-        className="absolute right-2 top-2 md:hidden rounded-full cursor-pointer group-hover:block">
-        <TrashCanIcon />
-      </div>
+    <form
+      action={() => removeItem(item.id)}
+      className="relative flex flex-col border-2 border-neutral-300 rounded-md w-[300px] group">
+      <DeleteButton id={item.id} />
       <img
         className="w-full h-[400px] rounded-t-md"
         src={item.image_url ?? "https://via.placeholder.com/300x400"}
@@ -34,6 +50,6 @@ export default async function WatchlistCard({ item }: WatchlistCardProps) {
         <h1 className="font-thin m-2 p-1 border-2">{item.category}</h1>
         <h1 className="font-thin m-2 p-1 border-2">{item.type}</h1>
       </div>
-    </div>
+    </form>
   );
 }

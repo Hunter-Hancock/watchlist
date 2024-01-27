@@ -49,8 +49,6 @@ export async function addItem(formData: FormData) {
 
   const response = await request.json();
 
-  console.log(response);
-
   const image = response.items[0].link;
 
   const { error } = await supabase.from("watchlist").insert({

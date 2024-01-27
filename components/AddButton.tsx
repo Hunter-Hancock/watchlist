@@ -10,7 +10,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "./ui/button";
+import { useFormStatus } from "react-dom";
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      className="border-2 p-2 bg-neutral-50"
+      type="submit"
+      aria-disabled={pending}>
+      {pending ? "Adding..." : "Add"}
+    </button>
+  );
+}
 
 export default function AddButton() {
   const movieGenres = [
@@ -62,7 +75,7 @@ export default function AddButton() {
                 ))}
               </select>
               <DialogClose asChild>
-                <Button type="submit">Add</Button>
+                <SubmitButton />
               </DialogClose>
             </form>
           </DialogDescription>

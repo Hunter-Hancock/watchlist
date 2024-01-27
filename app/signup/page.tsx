@@ -30,7 +30,7 @@ export default async function SignUpPage({
       options: {
         data: {
           custom_claims: {
-            global_name: "global name",
+            global_name: email.split("@")[0],
           },
           full_name: "New User",
           avatar_url: "https://i.imgur.com/8Km9tLL.png",
