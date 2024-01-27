@@ -1,4 +1,5 @@
 import AddButton from "@/components/AddButton";
+import HamburguerMenu from "@/components/HamburgerMenu";
 import WatchlistCard from "@/components/WatchlistCard";
 import { createClient } from "@/supabase/server";
 import { cookies } from "next/headers";
@@ -33,7 +34,10 @@ export default async function Home({
 
   return (
     <main className="flex flex-col items-center w-full min-h-screen mt-5">
-      <div className="flex gap-5">
+      <div className="md:hidden absolute left-11 z-10">
+        {user && <HamburguerMenu />}
+      </div>
+      <div className="hidden md:flex gap-5">
         <Link
           href={"/?category=All"}
           className="border-2 border-blue-600 px-6 py-2 rounded-md">

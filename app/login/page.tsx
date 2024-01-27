@@ -41,7 +41,7 @@ export default async function SignUpPage({
   };
 
   return (
-    <div className="flex flex-col text-white items-center justify-center min-h-screen bg-gray-600">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <Link
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm">
@@ -63,7 +63,7 @@ export default async function SignUpPage({
       <h1 className="text-2xl animate-in ">Account Log In</h1>
       <form
         action={signInEmail}
-        className="flex animate-in flex-col px-10 py-5 gap-2 rounded-lg bg-gray-700">
+        className="flex animate-in flex-col px-10 py-5 gap-2 rounded-lg">
         <label htmlFor="email">Email</label>
         <input
           className="rounded-md px-4 py-2 mb-6"

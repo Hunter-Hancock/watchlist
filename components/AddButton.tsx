@@ -45,6 +45,7 @@ export default function AddButton() {
                 type="text"
                 name="title"
                 placeholder="Title"
+                required
               />
               <select className="p-2" name="category">
                 {movieGenres.map((genre) => (
