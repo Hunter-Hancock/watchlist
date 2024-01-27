@@ -31,7 +31,7 @@ export default function AddButton() {
     "Musical",
   ];
 
-  const types = ["Movie", "TV", "Manga"];
+  const types = ["Movie", "TV", "Manga", "Anime"];
   return (
     <Dialog>
       <DialogTrigger>Add</DialogTrigger>

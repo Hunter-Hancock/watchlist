@@ -17,7 +17,8 @@ export default async function Home({
   const { data: watchlist } = await supabase
     .from("watchlist")
     .select("*")
-    .eq("user_id", `${user?.id}`);
+    .eq("user_id", `${user?.id}`)
+    .order("created_at", { ascending: false });
 
   return (
     <main className="flex flex-col items-center w-full min-h-screen mt-5">
