@@ -2,7 +2,6 @@ import AddButton from "@/components/AddButton";
 import WatchlistCard from "@/components/WatchlistCard";
 import { createClient } from "@/supabase/server";
 import { cookies } from "next/headers";
-import { addItem } from "./_actions";
 
 export default async function Home({
   searchParams,
