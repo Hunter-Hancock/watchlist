@@ -38,14 +38,16 @@ export default async function WatchlistCard({ item }: WatchlistCardProps) {
   return (
     <form
       action={() => removeItem(item.id)}
-      className="relative flex flex-col border-2 border-neutral-300 rounded-md w-[300px] group">
+      className="relative flex flex-col justify-between border-2 border-neutral-300 rounded-md w-[300px] group">
       <DeleteButton id={item.id} />
       <img
         className="w-full h-[400px] rounded-t-md"
         src={item.image_url ?? "https://via.placeholder.com/300x400"}
         alt={item.title}
       />
-      <h1 className="text-xl text-center mt-2">{item.title}</h1>
+      <h1 className="text-xl text-center mt-2 px-4 truncate hover:whitespace-normal hover:overflow-visible">
+        {item.title}
+      </h1>
       <div className="flex justify-between text-center items-center">
         <h1 className="font-thin m-2 p-1 border-2">{item.category}</h1>
         <h1 className="font-thin m-2 p-1 border-2">{item.type}</h1>
